@@ -138,6 +138,9 @@
   .paper figure{margin:6px 0 18px;}
   .paper figure img{width:100%;height:auto;border:1px solid var(--rule);border-radius:4px;display:block;}
   .paper figcaption{font-family:var(--mono);font-size:.72rem;color:var(--ink-soft);margin-top:8px;}
+  .fig-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:6px 0 18px;}
+  .fig-grid figure{margin:0;}
+  @media (max-width:700px){.fig-grid{grid-template-columns:1fr;}}
   .paper-links{display:flex;gap:18px;flex-wrap:wrap;font-family:var(--mono);font-size:.8rem;}
   @media (max-width:640px){.paper{padding:24px 20px;}}
 
@@ -251,8 +254,8 @@
     <p class="hero-tags"><b>Credentials:</b> Certified Business Economist (NABE) · Chartered Economist · M.S. Applied Economics</p>
     <div class="hero-cta">
       <a class="btn primary" href="#research">Read the research</a>
-      <!--💡UPDATE: upload your CV to assets/ and fix this filename -->
-      <a class="btn" href="assets/Paul_Baffoe_CV.pdf">Download CV</a>
+      <!--💡UPDATE: upload your CV to assets/ named exactly: Economics Analyst Specialist Resume.pdf -->
+      <a class="btn" href="assets/Economics Analyst Specialist Resume.pdf" download="Economics Analyst Specialist Resume.pdf">Download CV</a>
     </div>
     <div class="social-links">
       <!--💡UPDATE: replace with your LinkedIn profile URL -->
@@ -315,9 +318,22 @@
         <p class="sub">Estimating the causal effect of childcare access on labor supply in Central Minnesota</p>
         <p class="q"><b>RESEARCH QUESTION</b>Does access to licensed childcare increase labor-force participation, employment, and full-time work among parents of young children?</p>
         <ul class="findings">
-          <li>Responses diverge sharply by household type: a significant <em>negative</em> labor-force participation response among single mothers in higher-supply ZIP codes, alongside a <em>positive</em> employment response among single fathers.</li>
-          <li>Full-time employment shows a large discontinuity at the CCAP subsidy-eligibility threshold — evidence that how assistance phases out matters as much as how much childcare exists. RD estimates are reported with robustness caveats.</li>
+          <li>Responses diverge sharply by household type: a significant <em>negative</em> labor-force participation response among single mothers (β ≈ −0.14) alongside a significant <em>positive</em> employment response among single fathers (β ≈ +0.14) in higher-supply areas.</li>
+          <li>Full-time employment drops sharply at the CCAP subsidy-eligibility threshold (RD estimate ≈ −0.30, p = 0.001), while LFP and employment show no discontinuity — evidence that how assistance phases out matters as much as how much childcare exists. RD estimates carry bandwidth-sensitivity caveats; placebo cutoffs show no discontinuity.</li>
         </ul>
+        <figure>
+          <!--💡UPDATE: upload to assets/images/ -->
+          <img src="assets/images/panel_rq1.png" alt="Four-panel figure: childcare supply expansion in the St. Cloud MSA, labor supply outcomes, within-ZIP supply growth, and event study around the 2018 expansion shock" loading="lazy">
+          <figcaption>RQ1 — Childcare supply expansion and labor supply evidence, St. Cloud MSA. Source: MN DHS/DCYF, ACS PUMS.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/images/panel_rq2.png" alt="Heterogeneity in childcare supply effects by subgroup, with significant negative LFP coefficient for single mothers and positive employment coefficient for single fathers" loading="lazy">
+          <figcaption>RQ2 — Heterogeneity by subgroup: single mothers vs single fathers respond in opposite directions.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/images/panel_rq3.png" alt="Regression discontinuity at the CCAP eligibility threshold at 85 percent of the federal poverty line, showing a significant negative full-time employment discontinuity" loading="lazy">
+          <figcaption>RQ3 — Regression discontinuity at the CCAP 85% FPL eligibility threshold; full-time LATE ≈ −0.30 (p = 0.001).</figcaption>
+        </figure>
         <p class="meta-line">DATA&nbsp; 20 years of MN DHS/DCYF licensing records × ACS PUMS microdata, N ≈ 103,000 · MN DEED · QCEW · FRED<br>METHODS&nbsp; DiD/TWFE (HonestDiD) · IV · RD at the CCAP threshold&nbsp;&nbsp;&nbsp;SOFTWARE&nbsp; R (fixest, rdrobust, ivreg, did)</p>
         <div class="paper-links">
           <a href="https://github.com/PBaffoe88/Economics/tree/main/ChildCare-labor-Supply">code ↗</a>
@@ -337,10 +353,20 @@
           <li>Producer price volatility rises more in inventory-intensive sectors, peaking about six months post-shock. A 12-month placebo shock shows no comparable pattern, supporting a causal interpretation.</li>
         </ul>
         <figure>
-          <!--💡UPDATE: upload this image to assets/images/ -->
-          <img src="assets/images/publication_combined_inventory_channel_grid.png" alt="Five-panel figure: inventory-to-shipments ratios by industry and local projection responses of inventories, price volatility, and inflation to a monetary policy shock" loading="lazy">
-          <figcaption>Local projection estimates of the inventory channel. Source: Census M3/FRED, BLS PPI/FRED, SF Fed monetary policy surprises.</figcaption>
+          <!--💡UPDATE: upload to assets/images/ -->
+          <img src="assets/images/combined_inventory_channel_grid.png" alt="Five-panel figure: inventory-to-shipments ratios across manufacturing industries and local projection responses of inventories, price volatility, and inflation to a monetary policy shock" loading="lazy">
+          <figcaption>Descriptive and local projection evidence for the inventory channel. Source: Census M3/FRED, BLS PPI/FRED, SF Fed monetary policy surprises.</figcaption>
         </figure>
+        <div class="fig-grid">
+          <figure>
+            <img src="assets/images/lp_ppi_inflation.png" alt="Local projection response of producer price inflation to a monetary tightening shock by inventory intensity" loading="lazy">
+            <figcaption>Producer price inflation response to monetary tightening.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/images/fed_speech_phillips_curve_grid.png" alt="Four-panel figure: Fed Chair speech hawkishness index, inflation versus expectations, unemployment gap, and manufacturing response in an expectations-augmented Phillips curve framework" loading="lazy">
+            <figcaption>Companion analysis — Fed Chair communication and manufacturing expectations (Phillips curve framework).</figcaption>
+          </figure>
+        </div>
         <p class="meta-line">METHODS&nbsp; Jordà local projections · two-way fixed effects · placebo &amp; split-sample robustness&nbsp;&nbsp;&nbsp;SOFTWARE&nbsp; R, full reproducible pipeline</p>
         <div class="paper-links">
           <a href="https://github.com/PBaffoe88/Economics/tree/main/Monetary-Policy-Inventory_Channel">code ↗</a>
@@ -359,10 +385,24 @@
           <li>Local projections show a geopolitical risk shock is followed by a modest cumulative <em>decline</em> in WTI returns (~0.6% over the following month) rather than the price spike conventional wisdom predicts — geopolitical risk manifests as volatility and regime-switching, not persistent price increases.</li>
         </ul>
         <figure>
-          <!--💡UPDATE: upload this image to assets/images/ -->
-          <img src="assets/images/regime_probabilities.png" alt="Smoothed probability of the high-volatility crisis regime in oil returns from a two-state Markov-switching model, 1988 to 2026" loading="lazy">
-          <figcaption>Smoothed probability of the crisis regime, 2-state Markov-switching model, 1988–2026.</figcaption>
+          <!--💡UPDATE: upload to assets/images/ -->
+          <img src="assets/images/gpr_vs_wti.png" alt="Daily Caldara-Iacoviello geopolitical risk index and WTI spot price, 1988 to 2026" loading="lazy">
+          <figcaption>The raw data — daily GPR index (Caldara–Iacoviello) and WTI spot, 1988–2026.</figcaption>
         </figure>
+        <figure>
+          <img src="assets/images/regime_probabilities.png" alt="Smoothed probability of the high-volatility crisis regime in oil returns from a two-state Markov-switching model, 1988 to 2026" loading="lazy">
+          <figcaption>Smoothed probability of the crisis regime, 2-state Markov-switching model.</figcaption>
+        </figure>
+        <div class="fig-grid">
+          <figure>
+            <img src="assets/images/irf_gpr_oil.png" alt="Cumulative WTI return response to a geopolitical risk shock from local projections with Newey-West 95 percent bands" loading="lazy">
+            <figcaption>Cumulative WTI return response to a GPR shock (Jordà local projections).</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/images/wti_momentum_windows.png" alt="WTI time-series momentum measured as trailing cumulative log returns over one, three, six, and twelve month lookback windows" loading="lazy">
+            <figcaption>WTI time-series momentum by lookback window.</figcaption>
+          </figure>
+        </div>
         <p class="meta-line">DATA&nbsp; Caldara–Iacoviello GPR Index · WTI · macro indicators&nbsp;&nbsp;&nbsp;METHODS&nbsp; Markov-switching · EGARCH · Jordà local projections&nbsp;&nbsp;&nbsp;SOFTWARE&nbsp; R</p>
         <div class="paper-links">
           <a href="https://github.com/PBaffoe88/Economics/tree/main/CrudeOil-Momentum-GeoP-Risk">code ↗</a>
@@ -518,8 +558,8 @@
       <!--💡UPDATE: replace with your LinkedIn profile URL -->
       <a href="https://www.linkedin.com/in/your-profile/">linkedin</a>
       <a href="https://github.com/PBaffoe88">github</a>
-      <!--💡UPDATE: upload your CV to assets/ and fix this filename -->
-      <a href="assets/Paul_Baffoe_CV.pdf">cv (pdf)</a>
+      <!--💡UPDATE: upload your CV to assets/ named exactly: Economics Analyst Specialist Resume.pdf -->
+      <a href="assets/Economics Analyst Specialist Resume.pdf" download="Economics Analyst Specialist Resume.pdf">cv (pdf)</a>
     </div>
     <p class="colophon">© <span id="yr"></span> Paul Danso Baffoe · Built with plain HTML/CSS · Reproducible research, reproducible website — <a href="https://github.com/PBaffoe88" style="color:#8FA3C4">source on GitHub</a></p>
   </div>
